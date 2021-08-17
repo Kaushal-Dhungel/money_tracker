@@ -1,0 +1,32 @@
+# Django Part---------------------
+.vscode
+htmlcov
+venv
+.coverage
+.env
+db.sqlite3
+staticfiles
+
+# React part ----------------------
+
+# dependencies
+react-frontend/node_modules
+react-frontend/.pnp
+react-frontend/.pnp.js
+
+# testing
+react-frontend/coverage
+
+# production
+
+# misc
+react-frontend/.DS_Store
+react-frontend/.env.local
+react-frontend/.env.development.local
+react-frontend/.env.test.local
+react-frontend/.env.production.local
+react-frontend/.env
+
+react-frontend/npm-debug.log*
+react-frontend/yarn-debug.log*
+react-frontend/yarn-error.log*
