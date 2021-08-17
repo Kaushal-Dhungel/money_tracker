@@ -144,7 +144,7 @@ STATICFILES_DIRS = [      # specify where your static files are (not the files c
 
 STATIC_ROOT = BASE_DIR / 'staticfiles'  # this folder will be created and all static files will be collected here
 
-# STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
+STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
 MEDIA_URL = '/media/'
 MEDIA_ROOT = BASE_DIR / 'media'
