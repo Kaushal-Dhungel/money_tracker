@@ -124,7 +124,7 @@ const repeatedFunction = (data) => {
 export function registerFn (form) {
     return new Promise((resolve,reject) => {
 
-        axios.post(`${process.env.REACT_APP_URL}/register`,form)
+        axios.post(`${process.env.REACT_APP_URL}/back/register`,form)
         .then (res => {
             console.log(res.data)
             repeatedFunction(res.data);
