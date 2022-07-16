@@ -2,11 +2,10 @@ import React from 'react';
 import landingImg from '../imgs/abcd.webp';
 import incomeImg from '../imgs/bcde.webp';
 import todoImg from '../imgs/todo.svg';
-import {Link} from 'react-router-dom';
 import TrendingFlatIcon from '@material-ui/icons/TrendingFlat';
 import KeyboardTabIcon from '@material-ui/icons/KeyboardTab';
 import { Slide, Zoom } from "react-awesome-reveal";
-import {Redirect} from 'react-router-dom';
+import { Link, Redirect } from 'react-router-dom';
 
 const Landing = () => {
 

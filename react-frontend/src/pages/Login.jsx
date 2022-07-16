@@ -4,12 +4,12 @@ import ClipLoader from "react-spinners/ClipLoader";
 
 import {Link} from 'react-router-dom';
 import InputIcon from '@material-ui/icons/Input';
-import { useHistory } from "react-router-dom";
-import {Redirect} from 'react-router-dom';
+import { useHistory, Redirect } from 'react-router-dom';
 
 const Login = ()=> {
 
     const [loading, setLoading] = useState(false);
+    const [guestLoading, setGuestLoading] = useState(false);
     const [message,setMessage] = useState("");
     const history = useHistory();
     const isAuthenticated = localStorage.getItem("access") !== null;
@@ -38,6 +38,21 @@ const Login = ()=> {
             setMessage("Invalid Credentials. Please Try Again.")
             // console.log(err.respose.header)
             // console.log(err.response.data)
+        })
+    }
+
+    const onGuestLogin = () => {
+        
+        setGuestLoading(true)
+        
+        loginFn(process.env.REACT_APP_GUEST_USERNAME, process.env.REACT_APP_GUEST_PASSWORD)
+        .then(res => {
+            setGuestLoading(false)
+            history.push('/profile');
+        })
+        .catch(err => {
+            setGuestLoading(false)
+            setMessage("Invalid Credentials. Please Try Again.")
         })
     }
 
@@ -75,6 +90,19 @@ const Login = ()=> {
                         </span>
 
                     </form>
+
+                    <div className="guest_user">
+                        {
+                            guestLoading ? 
+                            <ClipLoader color="rgb(207, 52, 52)" size={60} />
+                            :
+                            <button className="simple_button" onClick={()=> {
+                                onGuestLogin();
+                              }}
+                                > Explore as a Guest </button>
+                        }
+                    </div>
+
                 </div>
         </div>
     )

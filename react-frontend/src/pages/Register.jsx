@@ -1,10 +1,10 @@
 import React,{useState,useRef} from 'react';
 import InputIcon from '@material-ui/icons/Input';
-import {Link} from 'react-router-dom';
 import ClipLoader from "react-spinners/ClipLoader";
 import {registerFn} from '../components/utils';
-import { useHistory } from "react-router-dom";
-import {Redirect} from 'react-router-dom';
+import { Link, useHistory, Redirect } from "react-router-dom";
+import {loginFn} from '../components/utils';
+
 
 const Register = ()=> {
     const [message,setMessage] = useState("");
@@ -15,6 +15,8 @@ const Register = ()=> {
     const passwordRef = useRef();
     const confpasswordRef = useRef();    
     const [loading,setLoading] = useState(false);
+    const [guestLoading, setGuestLoading] = useState(false);
+
     const history = useHistory();
     const isAuthenticated = localStorage.getItem("access") !== null;
 
@@ -57,8 +59,22 @@ const Register = ()=> {
             setPasswordMissMatch(true);
             return
           }
+    }
+
+    const onGuestLogin = () => {
     
-        }
+        setGuestLoading(true)
+        
+        loginFn(process.env.REACT_APP_GUEST_USERNAME, process.env.REACT_APP_GUEST_PASSWORD)
+        .then(res => {
+            setGuestLoading(false)
+            history.push('/profile');
+        })
+        .catch(err => {
+            setGuestLoading(false)
+            setMessage("Invalid Credentials. Please Try Again.")
+        })
+    }
 
     
     const pStyle = {
@@ -109,6 +125,18 @@ const Register = ()=> {
                     </span>
 
                 </form>
+
+                <div className="guest_user">
+                    {
+                        guestLoading ? 
+                        <ClipLoader color="rgb(207, 52, 52)" size={60} />
+                        :
+                        <button className="simple_button" onClick={()=> {
+                            onGuestLogin();
+                            }}
+                            > Explore as a Guest </button>
+                    }
+                </div>
             </div>
         </div>
     )

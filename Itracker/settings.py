@@ -67,7 +67,7 @@ ROOT_URLCONF = 'Itracker.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [BASE_DIR / 'build'],
+        'DIRS': [BASE_DIR / 'builds'],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -138,7 +138,7 @@ USE_TZ = True
 STATIC_URL = '/static/'
 
 STATICFILES_DIRS = [      # specify where your static files are (not the files collected by collectstatic but your static files, your images and etc)
-    BASE_DIR/'build/static',
+    BASE_DIR/'builds/static',
     # BASE_DIR/'staticfiles'
 ]
 

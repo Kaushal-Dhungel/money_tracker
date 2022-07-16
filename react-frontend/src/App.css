@@ -225,6 +225,8 @@ button[disabled]{
   
 .add_student {
     display: flex;
+    flex-direction: column;
+    gap: 2.5rem;
     justify-content: center;
     align-items: center;
   }
@@ -313,9 +315,9 @@ input[type=number] {
 
 @media screen and (max-width: 780px) { 
 
-    .add_student {
+    /* .add_student {
         display: block;
-    }
+    } */
     .add_student_header {
         font-size: 22px;
     }

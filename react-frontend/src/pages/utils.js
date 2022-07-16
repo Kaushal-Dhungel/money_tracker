@@ -7,8 +7,6 @@ import BarChartIcon from '@material-ui/icons/BarChart';
 
 const cardIconStyle = {
     fontSize :"60",
-    // color:"rgb(235, 69, 69)",
-    // color : "#475083"
     color :"#f50057"
 }
 
